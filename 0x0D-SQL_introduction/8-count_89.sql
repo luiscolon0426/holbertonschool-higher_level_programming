@@ -1,2 +1,2 @@
 -- display number of records/rows in the table
-SELECT COUNT(id) (first_table) FROM hbtn_oc_0
+SELECT COUNT(id) FROM (first_table) WHERE id= 89; 
