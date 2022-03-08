@@ -1,0 +1,105 @@
+============================================
+''' This is the Start of Unit Testing... '''
+============================================
+''' TESTTING WITH the following... '''
+
+''' Does the same as test below, but gives more details '''
+# python3 -m doctest -v ./tests/5-text_indentation.txt
+# python3 -m doctest -v ./5-text_indentation.txt | tail -2
+
+======================================
+''' Importing TEMPLATE function''''
+======================================
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+==============
+SUCCESS CASES
+==============
+
+
+Category 1
+==========
+
+Test 1: Normal input.
+>>> text_indentation("A wizard is never late Frodo Baggins. Nor is he early? He arrives precisely when he means to.")
+A wizard is never late Frodo Baggins.
+<BLANKLINE>
+Nor is he early?
+<BLANKLINE>
+He arrives precisely when he means to.
+<BLANKLINE>
+
+Test 2: space at the beggining
+>>> text_indentation("  Bilbo Baggins. Of the Shires.")
+Bilbo Baggins.
+<BLANKLINE>
+Of the Shires.
+<BLANKLINE>
+
+
+Test : single string, now newline
+>>> text_indentation("Gandalf")
+Gandalf
+
+Test : some ignore
+>>> text_indentation(" Hello: There ")
+Hello:
+<BLANKLINE>
+There
+
+
+Test 4: with "." and "?"
+>>> text_indentation("Hola?.")
+Hola?
+<BLANKLINE>
+.
+<BLANKLINE>
+
+==========================
+CASES THAT SHOULD NOT WORK
+==========================
+
+Category 2
+==========
+
+Test 3: none
+>>> text_indentation(None)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+
+Test 4: add int
+>>> text_indentation(5)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+Test 5: negative int
+>>> text_indentation(-2)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+
+Test 6: float
+>>> text_indentation(2.4)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+
+Test 7: negative float
+>>> text_indentation(-3.2)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+Test 8: no args
+>>> text_indentation()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+
+

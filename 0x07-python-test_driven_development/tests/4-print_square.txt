@@ -1,0 +1,109 @@
+============================================
+''' This is the Start of Unit Testing... '''
+============================================
+''' TESTTING WITH the following... '''
+
+''' Does the same as test below, but gives more details '''
+# python3 -m doctest -v ./tests/4-print_square.txt
+# python3 -m doctest -v ./tests/4-print_square.txt | tail -2
+
+======================================
+''' Importing TEMPLATE function''''
+======================================
+>>> print_square = __import__('4-print_square').print_square
+
+==============
+SUCCESS CASES
+==============
+
+
+Category 1
+==========
+
+Test 1: size 0
+>>> print_square(0)
+
+
+
+Test 2: size 10
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+
+Test 3: size 1
+>>> print_square(1)
+#
+
+
+
+==========================
+CASES THAT SHOULD NOT WORK
+==========================
+
+Category 2
+==========
+
+
+Test 4: string
+>>> print_square("cuadrau")
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+
+Test 5: Square less than 0
+>>> print_square(-5)
+Traceback (most recent call last):
+...
+ValueError: size must be >= 0
+
+
+Test 6: no args
+>>> print_square()
+Traceback (most recent call last):
+...
+TypeError: print_square() missing 1 required positional argument: 'size'
+
+
+Test 7: float
+>>> print_square(2.1)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+
+Test 8: negative float
+>>> print_square(-2.5)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+
+Test 9: nothing
+>>> print_square(None)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+
+Test 10: complex numbers
+>>> print_square (10e670**2)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+
+Test 11: NaN
+>>> print_square (float("NaN"))
+Traceback (most recent call last):
+...
+TypeError: size must be an integer

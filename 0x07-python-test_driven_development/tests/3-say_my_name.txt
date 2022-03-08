@@ -1,0 +1,94 @@
+============================================
+''' This is the Start of Unit Testing... '''
+============================================
+''' TESTTING WITH the following... '''
+
+''' Does the same as test below, but gives more details '''
+# python3 -m doctest -v ./tests/3-say_my_name.txt
+# python3 -m doctest -v ./tests/3-say_my_name | tail -2
+
+======================================
+''' Importing TEMPLATE function''''
+======================================
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+==============
+SUCCESS CASES
+==============
+
+
+Category 1
+==========
+
+Test 1: full name
+>>> say_my_name("Luis", "Colon")
+My name is Luis Colon
+
+
+Test 2: both empty strings
+>>> say_my_name("")
+My name is  
+
+Test 3: first name
+>>> say_my_name("Luis")
+My name is Luis 
+
+
+Test 4: empty strings
+>>> say_my_name("")
+My name is  
+
+
+
+
+
+==========================
+CASES THAT SHOULD NOT WORK
+==========================
+
+Category 2
+==========
+
+Test 5: first name not a string
+>>> say_my_name(5)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+
+Test 6: last_name is not a string
+>>> say_my_name("Colon", 50)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+Test 7: Neither both args
+>>> say_my_name()
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+
+Test 8: last name only
+>>> say_my_name(, "Colon")
+Traceback (most recent call last):
+...
+SyntaxError: invalid syntax
+
+Test 9: neither a string
+>>> say_my_name(["aja"], 10)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+Test 10: neither a string
+>>> say_my_name(12, "")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+Test 11: None
+>>> say_my_name(None)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string

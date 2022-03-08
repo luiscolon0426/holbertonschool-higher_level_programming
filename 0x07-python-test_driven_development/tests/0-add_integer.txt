@@ -1,0 +1,132 @@
+============================================
+''' This is the Start of Unit Testing... '''
+============================================
+''' TESTTING WITH the following... '''
+
+''' Does the same as test below, but gives more details '''
+# python3 -m doctest -v ./tests/0-add_integer.txt
+# python3 -m doctest -v ./tests/0-add_integer.txt | tail -2
+
+======================================
+''' Importing TEMPLATE function''''
+======================================
+>>> add_integer = __import__('0-add_integer').add_integer
+
+
+==============
+SUCCESS CASES
+==============
+
+
+Category 1
+==========
+
+
+test 1: two integers 
+>>> add_integer(3, 3)
+6
+
+Test 2: a is a float
+>>> add_integer(3.14, 98)
+101
+
+Test 3: b is a float
+>>> add_integer(98, 3.14)
+101
+
+
+Test 4: two zeros
+>>> add_integer(0, 0)
+0
+
+Test 5: a is float, b is negative
+>>> add_integer(100.3, -2)
+98
+
+Test 6: a is negative, b is a float
+>>> add_integer(-2, 100.3)
+98
+
+Test 7: a is negative, b is negative
+>>> add_integer(-2, -5)
+-7
+
+Test 8: a is a negative float
+>>> add_integer(-10.5, 7)
+-3
+
+Test 9: b is skipped, default val of 98
+>>> add_integer(2)
+100
+
+
+Test 10:a is negative float, b is a negative float
+>>> add_integer(-2.5, -2.5)
+-4
+
+
+
+==========================
+CASES THAT SHOULD NOT WORK
+==========================
+
+Category 2
+==========
+
+
+Test 10: b is a string
+>>> add_integer(7, "hello")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+
+Test 11: a is a string
+>>> add_integer("hello", 7)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+Test 12: a is None
+>>> add_integer(None, 30)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+Test 13: b is None
+>>> add_integer(30, None)
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+Test 14:both args are skipped
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+Test 15: complex numbers
+>>> add_integer (10e670**2, 1)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+
+Test 16: Invalid Syntax
+>>> add_integer (-7e, 10)
+Traceback (most recent call last):
+...
+SyntaxError: invalid syntax
+
+
+Test 17: NaN
+>>> add_integer (float("NaN"), 10)
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+
+Test 18:
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
