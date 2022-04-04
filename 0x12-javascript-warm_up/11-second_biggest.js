@@ -1,9 +1,16 @@
 #!/usr/bin/node
 
-let big = 0;
-const args = process.argv.slice(2);
-if (args.length > 1) {
-  args.sort();
-  big = args[args.length - 2];
+const { argv } = require('process');
+
+const argc = argv.length;
+const arr = [];
+
+if (argc < 4) {
+  console.log(0);
+} else {
+  for (let index = 2; index < argc; index++) {
+    arr.push(parseInt(argv[index], 10));
+  }
+  arr.sort(function (a, b) { return a - b; });
+  console.log(arr[arr.length - 2]);
 }
-console.log(big);
