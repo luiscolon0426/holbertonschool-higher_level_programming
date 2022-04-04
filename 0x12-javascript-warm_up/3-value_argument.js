@@ -1,4 +1,5 @@
 #!/usr/bin/node
+// Script that prints the first argument passed to it
 
 const i = process.argv[2];
 

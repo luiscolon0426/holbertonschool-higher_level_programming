@@ -1,4 +1,5 @@
 #!/usr/bin/node
+// Print the addition of 2 integers and return it
 
 const a = process.argv[2];
 const b = process.argv[3];

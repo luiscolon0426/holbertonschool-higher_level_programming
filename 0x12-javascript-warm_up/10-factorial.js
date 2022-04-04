@@ -1,4 +1,5 @@
 #!/usr/bin/node
+// Script that computs and prints a factorial
 
 const func = process.argv[2];
 

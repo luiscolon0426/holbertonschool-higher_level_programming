@@ -1,4 +1,5 @@
 #!/usr/bin/node
+// Print C is fun x times
 
 const x = process.argv[2];
 if (isNaN(x)) {

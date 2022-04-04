@@ -1,4 +1,5 @@
 #!/usr/bin/node
+// Script that orints 3 lines
 
 const C = 'C is fun';
 const P = 'Python is cool';

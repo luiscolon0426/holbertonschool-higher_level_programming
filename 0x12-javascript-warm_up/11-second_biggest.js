@@ -1,4 +1,5 @@
 #!/usr/bin/node
+// Script that searvhes the second biggest int in list
 
 const { argv } = require('process');
 

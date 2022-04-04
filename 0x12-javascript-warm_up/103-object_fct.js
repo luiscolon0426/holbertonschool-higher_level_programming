@@ -1,4 +1,5 @@
 #!/usr/bin/node
+// Update Script by adding a new funcion that increments the int
 
 const myObject = {
   type: 'object',

@@ -1,4 +1,5 @@
 #!/usr/bin/node
+// Print a square
 
 const x = process.argv[2];
 
