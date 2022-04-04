@@ -1,4 +1,6 @@
-#!/usr/bin/nodeconst x = process.argv[2];
+#!/usr/bin/node
+
+const func = process.argv[2];
 
 function factorial (func) {
   if (isNaN(func) || func === 1) {
