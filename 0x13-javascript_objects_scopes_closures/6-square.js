@@ -1,9 +1,8 @@
 #!/usr/bin/node
 // Create an instance method that printst the rectangle using the char c
 
-const NewSquare = require('./5-square.js');
-
-module.exports = class Square extends NewSquare {
+const Rectangle = require('./4-rectangle.js');
+module.exports = class Square extends Rectangle {
   constructor (size) {
     super(size, size);
   }
