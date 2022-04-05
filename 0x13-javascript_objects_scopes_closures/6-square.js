@@ -6,7 +6,7 @@ const NewSquare = require('./5-square.js');
 module.exports = class Square extends NewSquare {
   charPrint (c) {
     if (c === undefined) {
-      this.print();
+      c = 'X';
     } else {
       for (let i = 0; i < this.width; i++) {
         console.log(c.repeat(this.height));
