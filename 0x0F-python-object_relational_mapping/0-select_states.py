@@ -2,22 +2,15 @@
 ''' Script that lists all states from database '''
 
 import MySQLdb
-import sys
+from sys import argv
 
 if __name__ == "__main__":
-    user = sys.argv[1]
-    pswd = sys.argv[2]
-    dbname = sys.argv[3]
-
-    db = MySQLdb.connect("localhost", user, pswd, dbname)
-
+    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
+                         passwd=argv[2], db=argv[3], charset="utf8")
     cursor = db.cursor()
-    query = "SELECT * FROM states;"
-    try:
-        cursor.execute(query)
-        results = cursor.fetchall()
-        for item in results:
-            print(item)
-    except:
-        print("Failed to fetch data")
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    records = cursor.fetchall()
+    for row in records:
+        print(row)
+    cursor.close()
     db.close()
