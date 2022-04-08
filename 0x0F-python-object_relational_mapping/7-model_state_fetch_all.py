@@ -12,10 +12,10 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 rows = session.query(State.id, State.name).from_statement(text(
-       "SELECT id, name "
-        "FROM states "
-        "ORDER BY states.id ASC "
-       )).all()
+    "SELECT id, name "
+    "FROM states "
+    "ORDER BY states.id ASC "
+)).all()
 for id, name in rows:
     print("{:d}: {:s}".format(id, name))
     session.close()
