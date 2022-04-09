@@ -9,17 +9,12 @@ from model_state import State, Base
 if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
         argv[1], argv[2], argv[3]), pool_pre_ping=True)
-Base.metadata.create_all(engine)
-Session = sessionmaker(bind=engine)
-session = Session()
-rows = session.query(State.id, State.name).from_statement(text(
-    "SELECT id, name "
-    "FROM states "
-    "WHERE name=:input_name "
-).bindparams(input_name=argv[4])).all()
-if rows == []:
-    print("Not found")
-else:
-    for id, name in rows:
-        print("{:d}".format(id))
-session.close()
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    state = session.query(State).filter_by(name=argv[4]).first()
+    if state is not None:
+        print(str(state.id))
+    else:
+        print("Not found")
+    session.close()
