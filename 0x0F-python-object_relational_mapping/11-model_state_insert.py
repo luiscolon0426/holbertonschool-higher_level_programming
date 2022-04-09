@@ -6,14 +6,21 @@ from sys import argv
 from model_state import State, Base
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
-        argv[1], argv[2], argv[3]), pool_pre_ping=True)
-Base.metadata.create_all(eng)
-Session = sessionmaker(bind=eng)
-session = Session()
-new_state = State(name='Louisiana')
-session.add(new_state)
-state = session.query(State).filter_by(name='Louisiana').first()
-print(str(state.id))
-session.commit()
-session.close()
+
+    user = argv[1]
+    passwd = argv[2]
+    host = 'localhost'
+    db = argv[3]
+
+    engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'
+                           .format(user, passwd, host, db))
+    session = sessionmaker(bind=engine)
+    Session = session()
+
+    insertState = State(name="Louisiana")
+    Session.add(insertState)
+    Session.commit()
+
+    print("{}".format(insertState.id))
+
+    Session.close()
