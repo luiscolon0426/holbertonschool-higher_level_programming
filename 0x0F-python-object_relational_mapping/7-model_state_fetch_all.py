@@ -6,16 +6,13 @@ from sqlalchemy.orm import sessionmaker
 from sys import argv
 from model_state import State, Base
 
-engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
-    argv[1], argv[2], argv[3]), pool_pre_ping=True)
+engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(argv[1],
+                                                                argv[2],
+                                                                argv[3]))
+
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
-rows = session.query(State.id, State.name).from_statement(text(
-    "SELECT id, name "
-    "FROM states "
-    "ORDER BY states.id ASC "
-)).all()
-for id, name in rows:
-    print("{:d}: {:s}".format(id, name))
-    session.close()
+for state in session.query(State).order_by(State.id):
+    print("{}: {}".format(state.id, state.name))
+session.close()
