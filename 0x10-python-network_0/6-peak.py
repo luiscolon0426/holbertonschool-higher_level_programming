@@ -5,12 +5,15 @@
 def find_peak(list_of_integers):
     """ comment """
     li = list_of_integers
-    l = len(li)
-    if l == 0:
+    leng = len(li)
+    if leng == 0:
+        return None
+    if leng == 1:
         return
-    m = l // 2
-    if (m == l - 1 or li[m] >= li[m + 1]) and (m == 0 or li[m] >= li[m - 1]):
-        return li[m]
-    if m != l - 1 and li[m + 1] > li[m]:
-        return find_peak(li[m + 1:])
-    return find_peak(li[:m])
+    if li[0] >= li[1]:
+        return li[0]
+    elif li[-1] >= li[-2]:
+        return li[-1]
+    for i in range(1, leng - 1):
+        if li[i] >= li[i - 1] and li[i] >= li[i + 1]:
+            return li[i]
