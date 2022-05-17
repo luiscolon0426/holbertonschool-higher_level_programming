@@ -1,10 +1,13 @@
 #!/usr/bin/node
-// Script that printsall characters of Star Wars
+// Script that printsall characters of Star Warsconst fs = require('request');
+const url = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];
 
-const request = require('request');
-const films = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];
-request(films, (err, res, body) => {
-  if (err) {
-    console.error(err);
-  }
+fs(url, function (a, response, body) {
+  const characterURLs = JSON.parse(body).characters;
+  characterURLs.forEach((url) => {
+    fs(url, function (a, response, body) {
+      const character = JSON.parse(body).name;
+      console.log(character);
+    });
+  });
 });
